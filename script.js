@@ -1,8 +1,10 @@
 const noBtn = document.getElementById('noBtn');
+const yesBtn = document.querySelector('.Yes');
 const catImg = document.querySelector('.cat');
 const jsText = document.querySelector('.js');
 
-const images = [
+// 20 images and messages for NO
+const noImages = [
   'images/sad1.jpg',
   'images/sad2.jpg',
   'images/sad3.jpg',
@@ -25,7 +27,7 @@ const images = [
   'images/sad20.jpg'
 ];
 
-const texts = [
+const noTexts = [
   'Abhi toh haan keh sakti ho 😔',
   'Why you bully me?',
   'Mujhe yakin tha tu friend banegi...',
@@ -48,15 +50,36 @@ const texts = [
   'Ab repeat mode me dukh chalega...'
 ];
 
-let clickCount = 0;
+// 5 images and messages for YES
+const yesImages = [
+  'images/happy1.jpg',
+  'images/happy2.jpg',
+  'images/happy3.jpg',
+  'images/happy4.jpg',
+  'images/happy5.jpg'
+];
+
+const yesTexts = [
+  'Yayy! Tu meri friend ban gayi 😄',
+  'Aaj khushi ke aansu nikal gaye!',
+  'Cat bhi dance kar rahi hai! 💃',
+  'Friendship goals unlocked 🫶',
+  'Bas ab party hogi! 🎉'
+];
+
+let noClickCount = 0;
+let yesClickCount = 0;
 
 noBtn.addEventListener('click', () => {
-  const index = clickCount < images.length ? clickCount : images.length - 1;
-  catImg.src = images[index];
-  jsText.textContent = texts[index];
-  clickCount++;
+  const index = noClickCount < noImages.length ? noClickCount : noImages.length - 1;
+  catImg.src = noImages[index];
+  jsText.textContent = noTexts[index];
+  noClickCount++;
 });
 
-document.querySelector('.Yes').addEventListener('click', () => {
-  alert('Yayyy!!! You are now friends 😄');
+yesBtn.addEventListener('click', () => {
+  const index = yesClickCount < yesImages.length ? yesClickCount : yesImages.length - 1;
+  catImg.src = yesImages[index];
+  jsText.textContent = yesTexts[index];
+  yesClickCount++;
 });
