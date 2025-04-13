@@ -6,18 +6,19 @@
 
 body {
   background: linear-gradient(to right, #fbc2eb, #a6c1ee);
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
 }
 
 #Main {
   background-color: white;
-  width: 90%;
+  width: 100%;
   max-width: 500px;
-  padding: 30px;
+  padding: 30px 20px;
   text-align: center;
   font-size: 24px;
   border: 2px solid navy;
@@ -27,44 +28,47 @@ body {
 }
 
 .hello {
-  font-size: 28px;
-  margin-bottom: 10px;
+  font-size: 36px;
+  font-family: 'Pacifico', cursive;
   color: #333;
+  margin-bottom: 15px;
 }
 
 .Friend {
-  font-size: 22px;
+  font-size: 24px;
   margin-bottom: 15px;
   color: #555;
 }
 
 .cat {
-  height: 150px;
-  width: 160px;
+  height: 180px;
+  width: 190px;
   border-radius: 10px;
   margin-bottom: 20px;
 }
 
 .js {
-  font-size: 18px;
-  margin-bottom: 20px;
+  font-size: 20px;
+  margin-bottom: 25px;
   color: #666;
   font-style: italic;
 }
 
 .buttons {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
 }
 
 .btn {
-  font-size: 20px;
-  padding: 10px 20px;
-  border-radius: 10px;
+  font-size: 22px;
+  padding: 12px 24px;
+  border-radius: 12px;
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
+  min-width: 120px;
 }
 
 .Yes {
@@ -85,4 +89,45 @@ body {
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+.flying-emoji {
+  position: fixed;
+  bottom: 0;
+  font-size: 35px;
+  animation: flyUp ease-in forwards;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+@keyframes flyUp {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+/* ✅ Responsive for small screens */
+@media (max-width: 500px) {
+  .hello {
+    font-size: 32px;
+  }
+
+  .Friend, .js {
+    font-size: 20px;
+  }
+
+  .cat {
+    height: 160px;
+    width: 170px;
+  }
+
+  .btn {
+    font-size: 20px;
+    padding: 10px 20px;
+  }
 }

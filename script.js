@@ -3,18 +3,15 @@ const yesBtn = document.querySelector('.Yes');
 const catImg = document.querySelector('.cat');
 const jsText = document.querySelector('.js');
 
-// 20 images and messages for NO
+// NO button content (looping)
 const noImages = [
   'images/22.jpeg',
   'images/13.jpeg',
   'images/5.jpeg',
-  'images/10.gif',
+  'images/23.jpeg',
   'images/21.jpeg',
-  'images/sad6.jpg',
-  'images/sad7.jpg',
-  'images/sad8.jpg',
-  'images/sad9.jpg',
-  'images/sad10.jpg',
+  'images/17.jpeg',
+  'images/12.jpeg'
 ];
 
 const noTexts = [
@@ -23,37 +20,22 @@ const noTexts = [
   'Tumhari Taarif kru phir haan bologi;🫠',
   'Cat bhi sad ho gayi 😿',
   'Ache Hone Ka Matlab Bhaav Khana Nahi hai🙂',
-  'Ye dosti... ab adhoori reh gayi 😭',
-  'Tu nahi samjhegi...',
-  'Kya itna bura hoon mai? 😿',
-  'Tu bhi ruthless nikli 😔',
-  'Rula diya yaar...',
-  'Mai toh kuch aur soch ke aaya tha...',
-  'Friend request declined 💔',
   'Aankhon me aansu hai 😭',
-  'Mere emotions ka kya?',
-  'Arey ruk jaa... soch le!',
-  'Kya dosti bhi itni mushkil hai?',
-  'Toote dil ki awaaz sun sakti ho? 💔',
-  'Sochne me kya jaata hai?',
-  'Tu "yes" keh degi socha tha...',
-  'Bas kar... ab aur nahi sahunga 😓',
-  'Ab repeat mode me dukh chalega...'
+  'Ab To Haan Bol do..!!🥲',
+  'Last Baar puch Rha mat Mano Mai Phir repeat krungaa..!!😁'
 ];
 
-// 5 images and messages for YES
+// YES button content (looping)
 const yesImages = [
-  'images/happy1.jpg',
-  'images/happy2.jpg',
-  'images/happy3.jpg',
-  'images/happy4.jpg',
-  'images/happy5.jpg'
+  'images/9.jpeg',
+  'images/21.jpeg',
+  'images/6.jpeg',
+  'images/10.gif'
 ];
 
 const yesTexts = [
-  'Yayy! Tu meri friend ban gayi 😄',
+  'Yayy! Tum meri friend ban gayi 😄',
   'Aaj khushi ke aansu nikal gaye!',
-  'Cat bhi dance kar rahi hai! 💃',
   'Friendship goals unlocked 🫶',
   'Bas ab party hogi! 🎉'
 ];
@@ -61,16 +43,43 @@ const yesTexts = [
 let noClickCount = 0;
 let yesClickCount = 0;
 
+// NO button logic
 noBtn.addEventListener('click', () => {
-  const index = noClickCount < noImages.length ? noClickCount : noImages.length - 1;
-  catImg.src = noImages[index];
-  jsText.textContent = noTexts[index];
+  const imgIndex = noClickCount % noImages.length;
+  const textIndex = noClickCount % noTexts.length;
+  catImg.src = noImages[imgIndex];
+  jsText.textContent = noTexts[textIndex];
   noClickCount++;
+
+  spawnEmoji(); // emoji effect for NO
 });
 
+// YES button logic
 yesBtn.addEventListener('click', () => {
-  const index = yesClickCount < yesImages.length ? yesClickCount : yesImages.length - 1;
-  catImg.src = yesImages[index];
-  jsText.textContent = yesTexts[index];
+  const imgIndex = yesClickCount % yesImages.length;
+  const textIndex = yesClickCount % yesTexts.length;
+  catImg.src = yesImages[imgIndex];
+  jsText.textContent = yesTexts[textIndex];
   yesClickCount++;
+
+  spawnEmoji('🎉'); // emoji effect for YES
 });
+
+// Emoji animation function
+const emojis = ['💔', '😿', '🥺', '😭', '😢', '😞', '😩', '🤧'];
+
+function spawnEmoji(customEmoji = null) {
+  const emoji = document.createElement('div');
+  emoji.textContent = customEmoji || emojis[Math.floor(Math.random() * emojis.length)];
+  emoji.classList.add('flying-emoji');
+
+  // Random horizontal position
+  emoji.style.left = Math.random() * 90 + '%';
+  emoji.style.animationDuration = (Math.random() * 1 + 1.5) + 's';
+
+  document.body.appendChild(emoji);
+
+  setTimeout(() => {
+    emoji.remove();
+  }, 3000);
+}
