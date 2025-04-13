@@ -3,7 +3,7 @@ const yesBtn = document.querySelector('.Yes');
 const catImg = document.querySelector('.cat');
 const jsText = document.querySelector('.js');
 
-// NO button content (looping)
+
 const noImages = [
   'images/22.jpeg',
   'images/13.jpeg',
@@ -25,7 +25,6 @@ const noTexts = [
   'Last Baar puch Rha mat Mano Mai Phir repeat krungaa..!!😁'
 ];
 
-// YES button content (looping)
 const yesImages = [
   'images/9.jpeg',
   'images/21.jpeg',
@@ -43,7 +42,7 @@ const yesTexts = [
 let noClickCount = 0;
 let yesClickCount = 0;
 
-// NO button logic
+
 noBtn.addEventListener('click', () => {
   const imgIndex = noClickCount % noImages.length;
   const textIndex = noClickCount % noTexts.length;
@@ -51,10 +50,10 @@ noBtn.addEventListener('click', () => {
   jsText.textContent = noTexts[textIndex];
   noClickCount++;
 
-  spawnEmoji(); // emoji effect for NO
+  spawnEmoji(); 
 });
 
-// YES button logic
+
 yesBtn.addEventListener('click', () => {
   const imgIndex = yesClickCount % yesImages.length;
   const textIndex = yesClickCount % yesTexts.length;
@@ -62,10 +61,10 @@ yesBtn.addEventListener('click', () => {
   jsText.textContent = yesTexts[textIndex];
   yesClickCount++;
 
-  spawnEmoji('🎉'); // emoji effect for YES
+  spawnEmoji('🎉'); 
 });
 
-// Emoji animation function
+
 const emojis = ['💔', '😿', '🥺', '😭', '😢', '😞', '😩', '🤧'];
 
 function spawnEmoji(customEmoji = null) {
@@ -73,7 +72,7 @@ function spawnEmoji(customEmoji = null) {
   emoji.textContent = customEmoji || emojis[Math.floor(Math.random() * emojis.length)];
   emoji.classList.add('flying-emoji');
 
-  // Random horizontal position
+
   emoji.style.left = Math.random() * 90 + '%';
   emoji.style.animationDuration = (Math.random() * 1 + 1.5) + 's';
 
