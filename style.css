@@ -1,0 +1,88 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(to right, #fbc2eb, #a6c1ee);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#Main {
+  background-color: white;
+  width: 90%;
+  max-width: 500px;
+  padding: 30px;
+  text-align: center;
+  font-size: 24px;
+  border: 2px solid navy;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 1s ease-in-out;
+}
+
+.hello {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.Friend {
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: #555;
+}
+
+.cat {
+  height: 150px;
+  width: 160px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.js {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #666;
+  font-style: italic;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn {
+  font-size: 20px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.Yes {
+  background-color: #4caf50;
+  color: white;
+}
+
+.Yes:hover {
+  background-color: #45a049;
+}
+
+.No {
+  background-color: #f44336;
+  color: white;
+  position: relative;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
